@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  display: grid;
+  grid-template: 1fr 5fr / 1fr 5fr;
+}
+
+.header {
+  grid-column: 2;
+}
+
+.header-container {
+  margin: 2rem 5rem 1rem 3rem;
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.search input {
+  width: 65%;
+}
+
+.profile {
+  display: grid;
+  align-items: center;
+}
+
+.user-panel {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-gap: 3rem;
+}
+
+.aside {
+  grid-row: 1 / -1;
+  padding: 2rem;
+}
+
+.aside > * + * {
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+.panel > img {
+  margin-right: 1rem;
+}
+
+.panel li + li {
+  margin-top: 2rem;
+}
+
+.main {
+  display: grid;
+  grid-template: repeat(2, 1fr) / 2fr 1fr;
+  grid-gap: 2rem;
+  padding: 2rem;
+}
+
+.projects {
+  grid-row: span 2;
+}
+
+.cards {
+  margin-top: 1rem;
+  display: grid;
+  grid-template: auto / repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 2rem;
+}
+
+.card {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 150px;
+  padding: 3rem 2rem 1rem;
+  border-radius: 1rem;
+  border-left: 0.5rem solid orange;
+}
+
+.card-description {
+  font-size: 1.2rem;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: end;
+  gap: 3rem;
+}
+
+.main-list {
+  margin-top: 1rem;
+  padding: 2rem;
+  display: grid;
+}
+
+.announcements,
+.trending {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.announcement-list {
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.announcement {
+  display: grid;
+  align-content: center;
+}
+
+.announcement + .announcement {
+  border-top: 1px solid #000;
+}
+
+.announcement-description,
+.trending-item-description {
+  font-size: 1rem;
+}
+
+.trending-list {
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: 1rem;
+}
+
+.trending-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
