@@ -51,6 +51,7 @@ button:hover {
 .nav {
   display: grid;
   grid-template-columns: 1fr auto;
+  grid-gap: 1rem;
   align-items: center;
   margin-bottom: 2rem;
 }
@@ -71,11 +72,35 @@ button:hover {
   background: var(--bg-color);
 }
 
+.search input:focus {
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+}
+
 .profile {
   display: grid;
   grid-template-columns: repeat(3, auto);
   align-items: center;
   grid-gap: 3rem;
+}
+
+:is(.search-btn, .notifications):is(:hover, :focus) {
+  animation: 0.25s 2 swing;
+}
+
+@keyframes swing {
+  25% {
+    transform: rotate(15deg);
+  }
+
+  75% {
+    transform: rotate(-15deg);
+  }
+
+  50%,
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 .profile-picture-small {
@@ -129,18 +154,22 @@ button:hover {
   font-weight: bold;
 }
 
+.actions > button:is(:hover, :focus) {
+  transition: all 0.2s ease-in-out;
+  scale: 1.1;
+  color: var(--main-color);
+  background: hsl(200 30% 85% / 100%);
+}
+
 .aside {
   grid-row: 1 / -1;
-  padding: 2rem;
+  display: grid;
+  grid-template-rows: repeat(3, max-content);
+  grid-gap: 5rem;
   color: white;
   font-weight: bold;
   background-color: var(--main-color);
   font-size: 1.8rem;
-}
-
-.aside > * + * {
-  margin-top: 5rem;
-  padding: 1rem;
 }
 
 .dashboard {
@@ -148,12 +177,28 @@ button:hover {
   grid-template-columns: 3rem 1fr;
   grid-gap: 1rem;
   font-size: 2.5rem;
+  padding: 2rem 0 0 2rem;
 }
 
 .logo {
   display: grid;
   grid-template: 3fr 1fr 3fr / repeat(2, 1fr);
   grid-gap: 5px;
+}
+
+.logo:hover {
+  animation: 0.8s 1 forwards rotation;
+}
+
+@keyframes rotation {
+  75% {
+    transform: rotate(90deg);
+    background-color: var(--main-color);
+  }
+  100% {
+    transform: rotate(90deg);
+    background-color: white;
+  }
 }
 
 .logo-item {
@@ -168,23 +213,36 @@ button:hover {
   grid-row: span 2;
 }
 
-.panel img {
-  width: 2.5rem;
-}
-
 .panel li {
   display: grid;
   grid-template-columns: auto 1fr;
   grid-gap: 1rem;
   cursor: pointer;
-}
-
-.panel img {
-  filter: invert(1);
+  padding: 1rem 0;
 }
 
 .panel li + li {
-  margin-top: 2rem;
+  margin-top: 1rem;
+}
+
+.panel li:hover {
+  transition: all 0.2s;
+  border-right: 5px solid;
+  border-radius: 4px;
+  grid-gap: 1.5rem;
+  padding-left: 0.5rem;
+  background: hsl(200 100% 55% / 1);
+}
+
+.panel img {
+  width: 2.5rem;
+  filter: invert(1);
+  padding-left: 2.5rem;
+}
+
+.panel li:hover img {
+  transition: all 0.2s;
+  scale: 1.2;
 }
 
 .main {
@@ -231,6 +289,12 @@ button:hover {
   box-shadow: 0.5rem 0.5rem 0.5rem hsl(0, 0%, 0%, 10%);
 }
 
+.card:is(:hover, :focus) {
+  transition: all 0.2s ease-in-out;
+  translate: 0 -0.5rem;
+  box-shadow: 0.5rem 1rem 1rem hsl(0, 0%, 0%, 10%);
+}
+
 .card-title,
 .announcement-title {
   font-size: 1.8rem;
@@ -248,6 +312,11 @@ button:hover {
   display: flex;
   justify-content: end;
   gap: 3rem;
+}
+
+.card-actions button:is(:hover, :focus) {
+  transition: all 0.1s ease-in;
+  scale: 1.2;
 }
 
 .main-list {
